@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.4s ease-in-out;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ffffff;
+    color: #121212;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    color: #121212;
+}
+
+.video-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+video, canvas {
+    display: block; /* Ensures visibility */
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border: 2px solid #00FF00; /* Just to check if it's visible */
+    transform: scaleX(-1);
+}
+
+canvas {
+    pointer-events: none;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+#toggleMode {
+    margin-top: 10px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#toggleMode:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode h1 {
+    color: white;
+}
+
+.dark-mode .video-container {
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode h2 {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dark-mode #toggleMode {
+    background: #ffcc00;
+    color: #121212;
+}
+
+.dark-mode #toggleMode:hover {
+    background: #e6b800;
+}
+
+
+/* 🔹 Emoji Overlay (Appears on Detection) */
+#emojiOverlay {
+    font-size: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    animation: fadeInOut 1.5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* 🔹 Rain Effect */
+#rainContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.rainDrop {
+    position: absolute;
+    animation: fall 2s linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+
